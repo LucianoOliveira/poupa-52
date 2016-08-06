@@ -1,0 +1,522 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */; };
+		92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CF01D569B8B00CBC20A /* ViewController.swift */; };
+		92C36CF41D569B8B00CBC20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CF21D569B8B00CBC20A /* Main.storyboard */; };
+		92C36CF71D569B8B00CBC20A /* Poupa_52.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CF51D569B8B00CBC20A /* Poupa_52.xcdatamodeld */; };
+		92C36CF91D569B8B00CBC20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CF81D569B8B00CBC20A /* Assets.xcassets */; };
+		92C36CFC1D569B8B00CBC20A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CFA1D569B8B00CBC20A /* LaunchScreen.storyboard */; };
+		92C36D071D569B8B00CBC20A /* Poupa_52Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D061D569B8B00CBC20A /* Poupa_52Tests.swift */; };
+		92C36D121D569B8B00CBC20A /* Poupa_52UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92C36D031D569B8B00CBC20A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92C36CE31D569B8B00CBC20A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92C36CEA1D569B8B00CBC20A;
+			remoteInfo = "Poupa 52";
+		};
+		92C36D0E1D569B8B00CBC20A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92C36CE31D569B8B00CBC20A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92C36CEA1D569B8B00CBC20A;
+			remoteInfo = "Poupa 52";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92C36CEB1D569B8B00CBC20A /* Poupa 52.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poupa 52.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92C36CF01D569B8B00CBC20A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92C36CF31D569B8B00CBC20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92C36CF61D569B8B00CBC20A /* Poupa_52.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Poupa_52.xcdatamodel; sourceTree = "<group>"; };
+		92C36CF81D569B8B00CBC20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92C36CFB1D569B8B00CBC20A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92C36CFD1D569B8B00CBC20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92C36D021D569B8B00CBC20A /* Poupa 52Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poupa 52Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C36D061D569B8B00CBC20A /* Poupa_52Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poupa_52Tests.swift; sourceTree = "<group>"; };
+		92C36D081D569B8B00CBC20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92C36D0D1D569B8B00CBC20A /* Poupa 52UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poupa 52UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poupa_52UITests.swift; sourceTree = "<group>"; };
+		92C36D131D569B8B00CBC20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92C36CE81D569B8B00CBC20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36CFF1D569B8B00CBC20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36D0A1D569B8B00CBC20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92C36CE21D569B8B00CBC20A = {
+			isa = PBXGroup;
+			children = (
+				92C36CED1D569B8B00CBC20A /* Poupa 52 */,
+				92C36D051D569B8B00CBC20A /* Poupa 52Tests */,
+				92C36D101D569B8B00CBC20A /* Poupa 52UITests */,
+				92C36CEC1D569B8B00CBC20A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92C36CEC1D569B8B00CBC20A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92C36CEB1D569B8B00CBC20A /* Poupa 52.app */,
+				92C36D021D569B8B00CBC20A /* Poupa 52Tests.xctest */,
+				92C36D0D1D569B8B00CBC20A /* Poupa 52UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92C36CED1D569B8B00CBC20A /* Poupa 52 */ = {
+			isa = PBXGroup;
+			children = (
+				92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */,
+				92C36CF01D569B8B00CBC20A /* ViewController.swift */,
+				92C36CF21D569B8B00CBC20A /* Main.storyboard */,
+				92C36CF81D569B8B00CBC20A /* Assets.xcassets */,
+				92C36CFA1D569B8B00CBC20A /* LaunchScreen.storyboard */,
+				92C36CFD1D569B8B00CBC20A /* Info.plist */,
+				92C36CF51D569B8B00CBC20A /* Poupa_52.xcdatamodeld */,
+			);
+			path = "Poupa 52";
+			sourceTree = "<group>";
+		};
+		92C36D051D569B8B00CBC20A /* Poupa 52Tests */ = {
+			isa = PBXGroup;
+			children = (
+				92C36D061D569B8B00CBC20A /* Poupa_52Tests.swift */,
+				92C36D081D569B8B00CBC20A /* Info.plist */,
+			);
+			path = "Poupa 52Tests";
+			sourceTree = "<group>";
+		};
+		92C36D101D569B8B00CBC20A /* Poupa 52UITests */ = {
+			isa = PBXGroup;
+			children = (
+				92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */,
+				92C36D131D569B8B00CBC20A /* Info.plist */,
+			);
+			path = "Poupa 52UITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92C36CEA1D569B8B00CBC20A /* Poupa 52 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92C36D161D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52" */;
+			buildPhases = (
+				92C36CE71D569B8B00CBC20A /* Sources */,
+				92C36CE81D569B8B00CBC20A /* Frameworks */,
+				92C36CE91D569B8B00CBC20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Poupa 52";
+			productName = "Poupa 52";
+			productReference = 92C36CEB1D569B8B00CBC20A /* Poupa 52.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92C36D011D569B8B00CBC20A /* Poupa 52Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92C36D191D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52Tests" */;
+			buildPhases = (
+				92C36CFE1D569B8B00CBC20A /* Sources */,
+				92C36CFF1D569B8B00CBC20A /* Frameworks */,
+				92C36D001D569B8B00CBC20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92C36D041D569B8B00CBC20A /* PBXTargetDependency */,
+			);
+			name = "Poupa 52Tests";
+			productName = "Poupa 52Tests";
+			productReference = 92C36D021D569B8B00CBC20A /* Poupa 52Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92C36D0C1D569B8B00CBC20A /* Poupa 52UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92C36D1C1D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52UITests" */;
+			buildPhases = (
+				92C36D091D569B8B00CBC20A /* Sources */,
+				92C36D0A1D569B8B00CBC20A /* Frameworks */,
+				92C36D0B1D569B8B00CBC20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92C36D0F1D569B8B00CBC20A /* PBXTargetDependency */,
+			);
+			name = "Poupa 52UITests";
+			productName = "Poupa 52UITests";
+			productReference = 92C36D0D1D569B8B00CBC20A /* Poupa 52UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92C36CE31D569B8B00CBC20A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Luciano Oliveira";
+				TargetAttributes = {
+					92C36CEA1D569B8B00CBC20A = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					92C36D011D569B8B00CBC20A = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 92C36CEA1D569B8B00CBC20A;
+					};
+					92C36D0C1D569B8B00CBC20A = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 92C36CEA1D569B8B00CBC20A;
+					};
+				};
+			};
+			buildConfigurationList = 92C36CE61D569B8B00CBC20A /* Build configuration list for PBXProject "Poupa 52" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92C36CE21D569B8B00CBC20A;
+			productRefGroup = 92C36CEC1D569B8B00CBC20A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92C36CEA1D569B8B00CBC20A /* Poupa 52 */,
+				92C36D011D569B8B00CBC20A /* Poupa 52Tests */,
+				92C36D0C1D569B8B00CBC20A /* Poupa 52UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92C36CE91D569B8B00CBC20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C36CFC1D569B8B00CBC20A /* LaunchScreen.storyboard in Resources */,
+				92C36CF91D569B8B00CBC20A /* Assets.xcassets in Resources */,
+				92C36CF41D569B8B00CBC20A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36D001D569B8B00CBC20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36D0B1D569B8B00CBC20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92C36CE71D569B8B00CBC20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */,
+				92C36CF71D569B8B00CBC20A /* Poupa_52.xcdatamodeld in Sources */,
+				92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36CFE1D569B8B00CBC20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C36D071D569B8B00CBC20A /* Poupa_52Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92C36D091D569B8B00CBC20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92C36D121D569B8B00CBC20A /* Poupa_52UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92C36D041D569B8B00CBC20A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92C36CEA1D569B8B00CBC20A /* Poupa 52 */;
+			targetProxy = 92C36D031D569B8B00CBC20A /* PBXContainerItemProxy */;
+		};
+		92C36D0F1D569B8B00CBC20A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92C36CEA1D569B8B00CBC20A /* Poupa 52 */;
+			targetProxy = 92C36D0E1D569B8B00CBC20A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92C36CF21D569B8B00CBC20A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92C36CF31D569B8B00CBC20A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92C36CFA1D569B8B00CBC20A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92C36CFB1D569B8B00CBC20A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92C36D141D569B8B00CBC20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92C36D151D569B8B00CBC20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92C36D171D569B8B00CBC20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Poupa 52/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		92C36D181D569B8B00CBC20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Poupa 52/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		92C36D1A1D569B8B00CBC20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Poupa 52Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poupa 52.app/Poupa 52";
+			};
+			name = Debug;
+		};
+		92C36D1B1D569B8B00CBC20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Poupa 52Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poupa 52.app/Poupa 52";
+			};
+			name = Release;
+		};
+		92C36D1D1D569B8B00CBC20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Poupa 52UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Poupa 52";
+			};
+			name = Debug;
+		};
+		92C36D1E1D569B8B00CBC20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Poupa 52UITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Poupa 52";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92C36CE61D569B8B00CBC20A /* Build configuration list for PBXProject "Poupa 52" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C36D141D569B8B00CBC20A /* Debug */,
+				92C36D151D569B8B00CBC20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92C36D161D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C36D171D569B8B00CBC20A /* Debug */,
+				92C36D181D569B8B00CBC20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		92C36D191D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C36D1A1D569B8B00CBC20A /* Debug */,
+				92C36D1B1D569B8B00CBC20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		92C36D1C1D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92C36D1D1D569B8B00CBC20A /* Debug */,
+				92C36D1E1D569B8B00CBC20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92C36CF51D569B8B00CBC20A /* Poupa_52.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92C36CF61D569B8B00CBC20A /* Poupa_52.xcdatamodel */,
+			);
+			currentVersion = 92C36CF61D569B8B00CBC20A /* Poupa_52.xcdatamodel */;
+			path = Poupa_52.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 92C36CE31D569B8B00CBC20A /* Project object */;
+}
