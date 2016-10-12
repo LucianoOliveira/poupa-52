@@ -15,6 +15,7 @@
 		92C36CFC1D569B8B00CBC20A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CFA1D569B8B00CBC20A /* LaunchScreen.storyboard */; };
 		92C36D071D569B8B00CBC20A /* Poupa_52Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D061D569B8B00CBC20A /* Poupa_52Tests.swift */; };
 		92C36D121D569B8B00CBC20A /* Poupa_52UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */; };
+		92C36D201D569E7D00CBC20A /* Poupa52Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		92C36D0D1D569B8B00CBC20A /* Poupa 52UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poupa 52UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poupa_52UITests.swift; sourceTree = "<group>"; };
 		92C36D131D569B8B00CBC20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poupa52Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */,
 				92C36CF01D569B8B00CBC20A /* ViewController.swift */,
 				92C36CF21D569B8B00CBC20A /* Main.storyboard */,
+				92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */,
 				92C36CF81D569B8B00CBC20A /* Assets.xcassets */,
 				92C36CFA1D569B8B00CBC20A /* LaunchScreen.storyboard */,
 				92C36CFD1D569B8B00CBC20A /* Info.plist */,
@@ -191,18 +194,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Luciano Oliveira";
 				TargetAttributes = {
 					92C36CEA1D569B8B00CBC20A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					92C36D011D569B8B00CBC20A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 92C36CEA1D569B8B00CBC20A;
 					};
 					92C36D0C1D569B8B00CBC20A = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 						TestTargetID = 92C36CEA1D569B8B00CBC20A;
 					};
 				};
@@ -261,6 +267,7 @@
 			files = (
 				92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */,
 				92C36CF71D569B8B00CBC20A /* Poupa_52.xcdatamodeld in Sources */,
+				92C36D201D569E7D00CBC20A /* Poupa52Model.swift in Sources */,
 				92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,8 +337,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -375,8 +384,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -395,6 +406,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -407,6 +419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -418,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -429,6 +443,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poupa 52.app/Poupa 52";
 			};
 			name = Debug;
@@ -441,6 +456,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poupa 52.app/Poupa 52";
 			};
 			name = Release;
@@ -452,6 +468,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Poupa 52";
 			};
 			name = Debug;
@@ -463,6 +480,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "lucoli.Poupa-52UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Poupa 52";
 			};
 			name = Release;
@@ -486,6 +504,7 @@
 				92C36D181D569B8B00CBC20A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92C36D191D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52Tests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +513,7 @@
 				92C36D1B1D569B8B00CBC20A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92C36D1C1D569B8B00CBC20A /* Build configuration list for PBXNativeTarget "Poupa 52UITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +522,7 @@
 				92C36D1E1D569B8B00CBC20A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
