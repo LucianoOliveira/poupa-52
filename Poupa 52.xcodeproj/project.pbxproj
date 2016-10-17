@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		920B001F1DAFE67100F029D6 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B001E1DAFE67100F029D6 /* ViewController2.swift */; };
 		92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */; };
 		92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CF01D569B8B00CBC20A /* ViewController.swift */; };
 		92C36CF41D569B8B00CBC20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CF21D569B8B00CBC20A /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		920B001E1DAFE67100F029D6 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		92C36CEB1D569B8B00CBC20A /* Poupa 52.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poupa 52.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92C36CF01D569B8B00CBC20A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */,
 				92C36CF01D569B8B00CBC20A /* ViewController.swift */,
+				920B001E1DAFE67100F029D6 /* ViewController2.swift */,
 				92C36CF21D569B8B00CBC20A /* Main.storyboard */,
 				92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */,
 				92C36CF81D569B8B00CBC20A /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				920B001F1DAFE67100F029D6 /* ViewController2.swift in Sources */,
 				92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */,
 				92C36CF71D569B8B00CBC20A /* Poupa_52.xcdatamodeld in Sources */,
 				92C36D201D569E7D00CBC20A /* Poupa52Model.swift in Sources */,
