@@ -32,6 +32,10 @@ class ViewController2: UIViewController {
 
         // Do any additional setup after loading the view.
         initCalculations()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        view.addGestureRecognizer(tap)
     }
 
         override func didReceiveMemoryWarning() {
@@ -224,6 +228,10 @@ class ViewController2: UIViewController {
         
     }
     
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
