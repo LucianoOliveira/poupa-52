@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		920B001F1DAFE67100F029D6 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920B001E1DAFE67100F029D6 /* ViewController2.swift */; };
+		92683B92209271FC0053D8FB /* CRUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92683B91209271FC0053D8FB /* CRUD.swift */; };
+		92683B942092767E0053D8FB /* InitCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92683B932092767E0053D8FB /* InitCalculations.swift */; };
 		92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */; };
 		92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36CF01D569B8B00CBC20A /* ViewController.swift */; };
 		92C36CF41D569B8B00CBC20A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92C36CF21D569B8B00CBC20A /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 		92C36D071D569B8B00CBC20A /* Poupa_52Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D061D569B8B00CBC20A /* Poupa_52Tests.swift */; };
 		92C36D121D569B8B00CBC20A /* Poupa_52UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */; };
 		92C36D201D569E7D00CBC20A /* Poupa52Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */; };
+		92F88416209381C2005252D2 /* TableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F88414209381C2005252D2 /* TableViewCell1.swift */; };
+		92F88417209381C2005252D2 /* TableViewCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92F88415209381C2005252D2 /* TableViewCell1.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		920B001E1DAFE67100F029D6 /* ViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		92683B91209271FC0053D8FB /* CRUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRUD.swift; sourceTree = "<group>"; };
+		92683B932092767E0053D8FB /* InitCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitCalculations.swift; sourceTree = "<group>"; };
 		92C36CEB1D569B8B00CBC20A /* Poupa 52.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poupa 52.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92C36CF01D569B8B00CBC20A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +59,8 @@
 		92C36D111D569B8B00CBC20A /* Poupa_52UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poupa_52UITests.swift; sourceTree = "<group>"; };
 		92C36D131D569B8B00CBC20A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92C36D1F1D569E7D00CBC20A /* Poupa52Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Poupa52Model.swift; sourceTree = "<group>"; };
+		92F88414209381C2005252D2 /* TableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1.swift; sourceTree = "<group>"; };
+		92F88415209381C2005252D2 /* TableViewCell1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92683B9520927F4B0053D8FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92683B91209271FC0053D8FB /* CRUD.swift */,
+				92683B932092767E0053D8FB /* InitCalculations.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		92C36CE21D569B8B00CBC20A = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +120,8 @@
 		92C36CED1D569B8B00CBC20A /* Poupa 52 */ = {
 			isa = PBXGroup;
 			children = (
+				92F88418209381CA005252D2 /* View */,
+				92683B9520927F4B0053D8FB /* Model */,
 				92C36CEE1D569B8B00CBC20A /* AppDelegate.swift */,
 				92C36CF01D569B8B00CBC20A /* ViewController.swift */,
 				920B001E1DAFE67100F029D6 /* ViewController2.swift */,
@@ -132,6 +151,15 @@
 				92C36D131D569B8B00CBC20A /* Info.plist */,
 			);
 			path = "Poupa 52UITests";
+			sourceTree = "<group>";
+		};
+		92F88418209381CA005252D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92F88414209381C2005252D2 /* TableViewCell1.swift */,
+				92F88415209381C2005252D2 /* TableViewCell1.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +273,7 @@
 				92C36CFC1D569B8B00CBC20A /* LaunchScreen.storyboard in Resources */,
 				92C36CF91D569B8B00CBC20A /* Assets.xcassets in Resources */,
 				92C36CF41D569B8B00CBC20A /* Main.storyboard in Resources */,
+				92F88417209381C2005252D2 /* TableViewCell1.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,11 +298,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F88416209381C2005252D2 /* TableViewCell1.swift in Sources */,
 				920B001F1DAFE67100F029D6 /* ViewController2.swift in Sources */,
 				92C36CF11D569B8B00CBC20A /* ViewController.swift in Sources */,
+				92683B92209271FC0053D8FB /* CRUD.swift in Sources */,
 				92C36CF71D569B8B00CBC20A /* Poupa_52.xcdatamodeld in Sources */,
 				92C36D201D569E7D00CBC20A /* Poupa52Model.swift in Sources */,
 				92C36CEF1D569B8B00CBC20A /* AppDelegate.swift in Sources */,
+				92683B942092767E0053D8FB /* InitCalculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class ViewController: UIViewController, DataSentDelegate {
     
@@ -29,35 +30,45 @@ class ViewController: UIViewController, DataSentDelegate {
     @IBOutlet var sem1PouparButton : UIButton!
     @IBOutlet var sem2PouparButton: UIButton!
     
+    var items: [Semanas] = []
+    var opcoes: [Options] = []
+    
     var semanasPagas :[Bool]=[]
     var semanaPrimeiroDia :[String]=[]
-    let defaults = UserDefaults.standard
     var firstWeekDay=0
-    var poupaExtra=0
+    var poupaExtra=0.00
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         // Do any additional setup after loading the view, typically from a nib.
-        initCalculations()
+        InitCalculations().startCalc()
+        getData()
+        loadButoes()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
     @IBAction func sem0Poupar (_ sender : AnyObject) {
         let index:Int? = Int(sem0Num.text!)
         
         //com o numero do index por a true a semana onde o pagamento foi feito
-        semanasPagas[index!]=true
-        defaults.set(semanasPagas, forKey: "semanasPagas")
+        items[index!-1].semanaPaga = true
+        //save new data object in core data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    
         
         //correr a função que recalcula o valor poupado
-        valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+        valorPoupadoLabel.text=""+String(calculaValorPoupado())+"€"
         getSem0Data()
         
         
@@ -67,11 +78,13 @@ class ViewController: UIViewController, DataSentDelegate {
         let index:Int? = Int(sem1Num.text!)
         
         //com o numero do index por a true a semana onde o pagamento foi feito
-        semanasPagas[index!]=true
-        defaults.set(semanasPagas, forKey: "semanasPagas")
+        items[index!-1].semanaPaga = true
+        //save new data object in core data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         
         //correr a função que recalcula o valor poupado
-        valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+        valorPoupadoLabel.text=""+String(calculaValorPoupado())+"€"
         sem1PouparButton.setTitle("Já Poupado", for: UIControlState.normal)
         sem1PouparButton.isUserInteractionEnabled=false
         sem1PouparButton.isEnabled=false
@@ -83,159 +96,27 @@ class ViewController: UIViewController, DataSentDelegate {
         let index:Int? = Int(sem2Num.text!)
         
         //com o numero do index por a true a semana onde o pagamento foi feito
-        semanasPagas[index!]=true
-        defaults.set(semanasPagas, forKey: "semanasPagas")
+        items[index!-1].semanaPaga = true
+        //save new data object in core data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
         
         //correr a função que recalcula o valor poupado
-        valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+        valorPoupadoLabel.text=""+String(calculaValorPoupado())+"€"
         getSem2Data()
 
     }
     
-    
-    func initCalculations() {
-        
-        
-        //Defenições das datas
-        let dataHoje = Date()
-        let calendario = Calendar.current
-        
-        //Obter ano corrente
-        let ano = (calendario as NSCalendar).component(NSCalendar.Unit.year, from: dataHoje)
-
-        
-        let defaultsAno = defaults.integer(forKey:"savedYear")
-        
-        if (defaults.object(forKey: "poupaExtra") != nil) {
-            poupaExtra=defaults.integer(forKey: "poupaExtra")
-        }
-        else
-        {
-            poupaExtra=0
-            defaults.set(poupaExtra, forKey: "poupaExtra")
-        }
-        
-        //Se ano igual ao já gravado não faz nada... caso contrario inicializa os arrays
-        if  ano == defaultsAno {
-            
-            if (defaults.object(forKey: "semanasPagas") != nil)
-            {
-                semanasPagas = defaults.object(forKey: "semanasPagas") as! [Bool]
-            }
-            else
-            {
-                initSemanasPagas()
-            }
-            
-            if (defaults.object(forKey: "semanaPrimeiroDia") != nil)
-            {
-                semanaPrimeiroDia = defaults.object(forKey: "semanaPrimeiroDia") as! [String]
-            }
-            else
-            {
-                initSemanaPrimeiroDia()
-            }
-
-        }
-        else{
-            defaults.set(ano, forKey: "savedYear")
-            
-            initSemanasPagas()
-            initSemanaPrimeiroDia()
-            
-        }
-        
-        
-        
-        let currentDate=Date()
-        var calender = Calendar.current
-        
-        //Conseguir o primeiro dia da semana
-        obterPrimeiroDiaDeSemana()
-        calender.firstWeekday=firstWeekDay
-        
-        let week1 = (calender as NSCalendar).component(NSCalendar.Unit.weekOfYear, from: currentDate)
-        
-        
-        valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
-        
-        sem1Num.text=String(week1);
-        sem1Inicio.text=String(semanaPrimeiroDia[week1])
-        sem1Valor.text=String(week1)+"€"
-        
-        //se semana ja foi poupada não permite carregar no botão poupar
-        if semanasPagas[week1]==true {
-            sem1PouparButton.setTitle("Já Poupado", for: UIControlState.normal)
-            sem1PouparButton.isUserInteractionEnabled=false
-            sem1PouparButton.isEnabled=false
-            
-        }
-        else
-        {
-            sem1PouparButton.setTitle("Poupar", for: UIControlState.normal)
-            sem1PouparButton.isUserInteractionEnabled=true
-            sem1PouparButton.isEnabled=true
-        }
-        
-        getSem0Data()
-        getSem2Data()
-        
+    func getData(){
+        getOptions()
+        getItems()
     }
     
-    func initSemanasPagas() {
-        for _ in 0...52{
-            semanasPagas.append(false)
-        }
-        defaults.set(semanasPagas, forKey: "semanasPagas")
-    }
-    
-    func initSemanaPrimeiroDia() {
-        //Defenições das datas
-        let dF = DateFormatter()
-        let dataHoje = Date()
-        let calendario = Calendar.current
-        
-        //Obter ano corrente
-        let ano = (calendario as NSCalendar).component(NSCalendar.Unit.year, from: dataHoje)
-        
-        var primeiroDiaDoAno=DateComponents()
-        primeiroDiaDoAno.year=ano;
-        primeiroDiaDoAno.month=1;
-        primeiroDiaDoAno.day=1;
-        let dataPrimeiroDiaDoAno=calendario.date(from: primeiroDiaDoAno)
-        let primeiroDiaDeSemana=(calendario as NSCalendar).component(NSCalendar.Unit.weekday, from: dataPrimeiroDiaDoAno!)
-        semanaPrimeiroDia.append("00-00-0000")
-        for index in 1...52{
-            var weekComponents = DateComponents()
-            
-            if index==1 {
-                weekComponents.year=ano
-                weekComponents.month=1;
-                weekComponents.weekday=primeiroDiaDeSemana+1;
-            }
-            else
-            {
-                weekComponents.year=ano
-                weekComponents.weekOfYear=index;
-                weekComponents.weekday=primeiroDiaDeSemana;
-            }
-            
-            let weekFirstDay=calendario.date(from: weekComponents)!
-            var weekString: String
-            dF.dateFormat="dd-MM-YYYY"
-            weekString=dF.string(from: weekFirstDay)
-            
-            semanaPrimeiroDia.append(weekString)
-            
-        }
-        defaults.set(semanaPrimeiroDia, forKey: "semanaPrimeiroDia")
-    }
-    
-    func calculaValorPoupado()->Int {
-        var valorPoupado=0
-        for index in 1...52{
-            if semanasPagas[index]==true {
-                valorPoupado=valorPoupado+index;
+    func calculaValorPoupado()->Double {
+        var valorPoupado=0.00
+        for index in 0...51{
+            if items[index].semanaPaga==true {
+                valorPoupado=valorPoupado+Double(index+1);
             }
         }
         valorPoupado = valorPoupado+poupaExtra
@@ -255,7 +136,7 @@ class ViewController: UIViewController, DataSentDelegate {
         if semana1>1 {
             var semana0=semana1-1
             while sem0==0 && semana0>0{
-                if semanasPagas[semana0]==false {
+                if items[semana0-1].semanaPaga==false {
                     //esta é a semana 0 que temos de mostrar
                     sem0=semana0;
                 }
@@ -273,7 +154,7 @@ class ViewController: UIViewController, DataSentDelegate {
         if sem0 != 0
         {
             sem0Num.text=String(sem0)
-            sem0Inicio.text=String(semanaPrimeiroDia[sem0])
+            sem0Inicio.text=items[sem0-1].primeiroDia
             sem0Valor.text=String(sem0)+"€"
             sem0PouparButton.isUserInteractionEnabled=true
             sem0PouparButton.isEnabled=true
@@ -290,6 +171,34 @@ class ViewController: UIViewController, DataSentDelegate {
         
     }
     
+    private func getSem1Data(){
+        let currentDate=Date()
+        let calender = Calendar.current
+        let week1 = (calender as NSCalendar).component(NSCalendar.Unit.weekOfYear, from: currentDate)
+        
+        
+        valorPoupadoLabel.text=""+String(calculaValorPoupado())+"€"
+        
+        sem1Num.text=String(week1);
+        sem1Inicio.text=items[week1-1].primeiroDia
+        sem1Valor.text=String(week1)+"€"
+        
+        //se semana ja foi poupada não permite carregar no botão poupar
+        if items[week1-1].semanaPaga==true {
+            sem1PouparButton.setTitle("Já Poupado", for: UIControlState.normal)
+            sem1PouparButton.isUserInteractionEnabled=false
+            sem1PouparButton.isEnabled=false
+            
+            
+        }
+        else
+        {
+            sem1PouparButton.setTitle("Poupar", for: UIControlState.normal)
+            sem1PouparButton.isUserInteractionEnabled=true
+            sem1PouparButton.isEnabled=true
+        }        
+    }
+    
     func getSem2Data() {
         let currentDate=Date()
         var calender = Calendar.current
@@ -304,7 +213,7 @@ class ViewController: UIViewController, DataSentDelegate {
             var semana2=semana1+1
             while sem2==0 && semana2<53
             {
-                if semanasPagas[semana2]==false{
+                if items[semana2-1].semanaPaga==false{
                     sem2=semana2
                 }
                 else{
@@ -318,7 +227,7 @@ class ViewController: UIViewController, DataSentDelegate {
         if sem2 != 0
         {
             sem2Num.text=String(sem2)
-            sem2Inicio.text=String(semanaPrimeiroDia[sem2])
+            sem2Inicio.text=items[sem2-1].primeiroDia
             sem2Valor.text=String(sem2)+"€"
             sem2PouparButton.isUserInteractionEnabled=true
             sem2PouparButton.isEnabled=true
@@ -353,7 +262,9 @@ class ViewController: UIViewController, DataSentDelegate {
     }
     
     func userDidEnterData(data: String) {
-        initCalculations()
+        InitCalculations().startCalc()
+        getData()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -361,6 +272,42 @@ class ViewController: UIViewController, DataSentDelegate {
             let VC2: ViewController2 = segue.destination as! ViewController2
             VC2.delegate=self
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        InitCalculations().startCalc()
+        getData()
+        loadButoes()
+    }
+    
+    private func getOptions(){
+        //Get context of core data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //fill array items with all the items in core data
+        do {
+            try opcoes = context.fetch(Options.fetchRequest())
+        } catch  {
+            print("Error while catching from CoreData")
+        }
+    }
+    
+    private func getItems(){
+        //Get context of core data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //fill array items with all the items in core data
+        do {
+            try items = context.fetch(Semanas.fetchRequest())
+        } catch  {
+            print("Error while catching from CoreData")
+        }
+    }
+    
+    private func loadButoes(){
+        getSem1Data()
+        getSem0Data()
+        getSem2Data()
     }
 
 }

@@ -7,53 +7,82 @@
 //
 
 import UIKit
+import CoreData
 
 protocol DataSentDelegate {
     func userDidEnterData(data: String)
 }
 
-class ViewController2: UIViewController {
+class ViewController2: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
    
     @IBOutlet var valorPoupadoLabel : UILabel!
     @IBOutlet weak var poupaExtraText: UITextField!
+    @IBOutlet weak var tableViewVC2: UITableView!
     
     
     var semanasPagas :[Bool]=[]
     var semanaPrimeiroDia :[String]=[]
-    let defaults = UserDefaults.standard
     var firstWeekDay=0
-    var poupaExtra=0
+    var poupaExtra=0.00
+    
+    var items: [Semanas] = []
+    var opcoes: [Options] = []
     
     var delegate: DataSentDelegate? = nil
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshValorPoupado), name: NSNotification.Name(rawValue: "refresh"), object: nil)
 
+        tableViewVC2.delegate = self
+        tableViewVC2.dataSource = self
         // Do any additional setup after loading the view.
         initCalculations()
+        getData()
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        
+        loadTableView()
+        
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController2.dismissKeyboard))
         
         view.addGestureRecognizer(tap)
     }
+    
 
-        override func didReceiveMemoryWarning() {
+    
+    
+    override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func resetSavings(_ sender: AnyObject) {
-        resetSemanasPagas()
-        poupaExtra=0
-        defaults.set(poupaExtra, forKey: "poupaExtra")
+        CRUD().resetSemanas()
+        opcoes[0].extraPoupado = 0.00
+        //save new data object in core data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        getData()
+        
+        poupaExtra=0.00
         poupaExtraText.text=String(poupaExtra)
         valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+        
+        tableViewVC2.reloadData()
     }
     
     @IBAction func pouparExtra(_ sender: AnyObject) {
-        poupaExtra=Int(poupaExtraText.text!)!
-        defaults.set(poupaExtra, forKey: "poupaExtra")
+        poupaExtra=Double(poupaExtraText.text!)!
+        opcoes[0].extraPoupado = Double(poupaExtra)
+        //save new data object in core data
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+        getData()
+        
         valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
         
         
@@ -72,59 +101,9 @@ class ViewController2: UIViewController {
     
     func initCalculations() {
         
+        getData()
         
-        //Defenições das datas
-        let dataHoje = Date()
-        let calendario = Calendar.current
-        
-        //Obter ano corrente
-        let ano = (calendario as NSCalendar).component(NSCalendar.Unit.year, from: dataHoje)
-        
-        
-        let defaultsAno = defaults.integer(forKey:"savedYear")
-        
-        
-        if (defaults.object(forKey: "poupaExtra") != nil) {
-            poupaExtra=defaults.integer(forKey: "poupaExtra")
-        }
-        else
-        {
-            poupaExtra=0
-            defaults.set(poupaExtra, forKey: "poupaExtra")
-        }
-        poupaExtraText.text=String(poupaExtra)
-        
-        
-        //Se ano igual ao já gravado não faz nada... caso contrario inicializa os arrays
-        if  ano == defaultsAno {
-            
-            if (defaults.object(forKey: "semanasPagas") != nil)
-            {
-                semanasPagas = defaults.object(forKey: "semanasPagas") as! [Bool]
-            }
-            else
-            {
-                initSemanasPagas()
-            }
-            
-            if (defaults.object(forKey: "semanaPrimeiroDia") != nil)
-            {
-                semanaPrimeiroDia = defaults.object(forKey: "semanaPrimeiroDia") as! [String]
-            }
-            else
-            {
-                initSemanaPrimeiroDia()
-            }
-            
-        }
-        else{
-            defaults.set(ano, forKey: "savedYear")
-            
-            initSemanasPagas()
-            initSemanaPrimeiroDia()
-            
-        }
-        
+        poupaExtraText.text=String(opcoes[0].extraPoupado)
         
         var calender = Calendar.current
         
@@ -134,74 +113,20 @@ class ViewController2: UIViewController {
         
         
         valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+        tableViewVC2.reloadData()
         
         
         
     }
 
-    func resetSemanasPagas() {
-        for index in 1...52 {
-            semanasPagas[index]=false
-        }
-        defaults.set(semanasPagas, forKey: "semanasPagas")
-        
-    }
+
     
     
-    func initSemanasPagas() {
-        for _ in 0...52{
-            semanasPagas.append(false)
-        }
-        defaults.set(semanasPagas, forKey: "semanasPagas")
-    }
-    
-    func initSemanaPrimeiroDia() {
-        //Defenições das datas
-        let dF = DateFormatter()
-        let dataHoje = Date()
-        let calendario = Calendar.current
-        
-        //Obter ano corrente
-        let ano = (calendario as NSCalendar).component(NSCalendar.Unit.year, from: dataHoje)
-        
-        var primeiroDiaDoAno=DateComponents()
-        primeiroDiaDoAno.year=ano;
-        primeiroDiaDoAno.month=1;
-        primeiroDiaDoAno.day=1;
-        let dataPrimeiroDiaDoAno=calendario.date(from: primeiroDiaDoAno)
-        let primeiroDiaDeSemana=(calendario as NSCalendar).component(NSCalendar.Unit.weekday, from: dataPrimeiroDiaDoAno!)
-        semanaPrimeiroDia.append("00-00-0000")
-        for index in 1...52{
-            var weekComponents = DateComponents()
-            
-            if index==1 {
-                weekComponents.year=ano
-                weekComponents.month=1;
-                weekComponents.weekday=primeiroDiaDeSemana+1;
-            }
-            else
-            {
-                weekComponents.year=ano
-                weekComponents.weekOfYear=index;
-                weekComponents.weekday=primeiroDiaDeSemana;
-            }
-            
-            let weekFirstDay=calendario.date(from: weekComponents)!
-            var weekString: String
-            dF.dateFormat="dd-MM-YYYY"
-            weekString=dF.string(from: weekFirstDay)
-            
-            semanaPrimeiroDia.append(weekString)
-            
-        }
-        defaults.set(semanaPrimeiroDia, forKey: "semanaPrimeiroDia")
-    }
-    
-    func calculaValorPoupado()->Int {
-        var valorPoupado=0
-        for index in 1...52{
-            if semanasPagas[index]==true {
-                valorPoupado=valorPoupado+index;
+    func calculaValorPoupado()->Double {
+        var valorPoupado=0.00
+        for index in 0...51{
+            if items[index].semanaPaga==true {
+                valorPoupado=valorPoupado+Double(index+1);
             }
         }
         valorPoupado = valorPoupado+poupaExtra
@@ -228,8 +153,79 @@ class ViewController2: UIViewController {
         
     }
     
+    private func getData(){
+        getOptions()
+        getItems()
+    }
     
-    func dismissKeyboard(){
+    private func getOptions(){
+        //Get context of core data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //fill array items with all the items in core data
+        do {
+            try opcoes = context.fetch(Options.fetchRequest())
+        } catch  {
+            print("Error while catching from CoreData")
+        }
+        poupaExtra = opcoes[0].extraPoupado
+    }
+    private func getItems(){
+        //Get context of core data
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        //fill array items with all the items in core data
+        do {
+            try items = context.fetch(Semanas.fetchRequest())
+        } catch  {
+            print("Error while catching from CoreData")
+        }
+    }
+    
+    private func loadTableView(){
+        let currentDate=Date()
+        let calender = Calendar.current
+        let week1 = (calender as NSCalendar).component(NSCalendar.Unit.weekOfYear, from: currentDate)
+        let index = IndexPath(row: week1-1, section: 0)
+        self.tableViewVC2.scrollToRow(at: index, at: .top, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        getData()
+        
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell1", for: indexPath)
+        let cell = Bundle.main.loadNibNamed("TableViewCell1", owner: self, options: nil)?.first as! TableViewCell1
+        let row = indexPath.row
+        cell.semanaText.text = items[row].primeiroDia
+        cell.valueText.text = String(items[row].semanaNum)+"€"
+        cell.valueSemana.text = String(items[row].semanaNum)
+        if items[row].semanaPaga {
+            cell.statusText.text = "Poupado"
+            cell.buttonOutlet.setTitle("Apagar", for: .normal)
+            cell.imageCell.backgroundColor = UIColor(red: 144/255, green: 190/255, blue: 173/255, alpha: 1)
+        }
+        else{
+            cell.statusText.text = "Não Poupado"
+            cell.buttonOutlet.setTitle("Poupar", for: .normal)
+            cell.imageCell.backgroundColor = UIColor(red: 0, green: 128/255, blue: 255/255, alpha: 1)
+        }
+        cell.imageCell.layer.cornerRadius = cell.imageCell.frame.size.width/2
+        cell.imageCell.clipsToBounds = true
+        
+        
+        return cell
+    }
+    
+    func refreshValorPoupado() {
+        getData()
+        valorPoupadoLabel.text="Valor Poupado "+String(calculaValorPoupado())+"€"
+    }
+    
+    @objc func dismissKeyboard(){
         view.endEditing(true)
     }
     /*
